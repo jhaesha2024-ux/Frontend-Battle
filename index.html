@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0f19" />
+    <title>Frontend Battle — Pricing Bento</title>
+    <meta
+      name="description"
+      content="Matrix-driven pricing with a Bento-to-Accordion responsive layout."/>
+    <meta name="keywords" content="pricing, bento, accordion, matrix-driven, frontend battle" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Frontend Battle — Pricing Bento" />
+    <meta property="og:description" content="Matrix-driven pricing with a Bento-to-Accordion responsive layout."/>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://example.com" />
+    <meta property="og:image" content="https://example.com/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Frontend Battle — Pricing Bento" />
+    <meta name="twitter:description" content="Matrix-driven pricing with a Bento-to-Accordion responsive layout." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <div class="bg-canvas" aria-hidden="true">
+      <canvas id="particle-canvas" class="particle-canvas"></canvas>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <div class="brand">
+          <img class="brand-icon" alt="" src="./cube-16-solid.svg" />
+          <div class="brand-text">
+            <div class="brand-title">Pricing Bento</div>
+            <div class="brand-subtitle">Matrix-driven, motion-native</div>
+          </div>
+        </div>
+
+        <div class="controls" aria-label="Pricing controls">
+          <div class="control-group">
+            <label class="control-label" for="currency">Currency</label>
+            <select id="currency" class="select" aria-label="Select currency">
+              <option value="INR">INR (₹)</option>
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="billing">Billing</label>
+            <div class="toggle" role="group" aria-label="Billing cycle" data-active="monthly">
+              <button type="button" class="toggle-btn" data-billing="monthly" id="billing-monthly" aria-pressed="true">Monthly</button>
+              <button type="button" class="toggle-btn" data-billing="annual" id="billing-annual" aria-pressed="false">Annual</button>
+              <span class="toggle-bg" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="page">
+      <section class="container" aria-labelledby="pricing-title">
+        <h1 id="pricing-title" class="title">Pick a plan that scales with your build</h1>
+        <p class="subtitle">
+          Switch billing and currency without re-rendering layout: only the price nodes update.
+        </p>
+
+        <!-- Desktop Bento -->
+        <div class="bento" data-region="bento" aria-label="Pricing tiers">
+          <div class="bento-grid" id="bento-grid" role="list">
+            <!-- Bento nodes injected by JS -->
+          </div>
+        </div>
+
+        <!-- Mobile Accordion -->
+        <div class="accordion-wrap" data-region="accordion" aria-label="Pricing tiers accordion">
+          <div class="accordion" id="accordion" role="list">
+            <!-- Accordion items injected by JS -->
+          </div>
+        </div>
+
+        <div class="footnote" role="note">
+          <img class="footnote-icon" alt="" src="./arrow-trending-up.svg" />
+          <span>Hover (desktop) a card, then resize—your active index persists on mobile.</span>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
